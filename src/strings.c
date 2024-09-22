@@ -1835,3 +1835,4 @@ const u8 gText_PlantBerry[] = _("PLANT BERRY");
 const u8 gText_AM[] = _("AM");
 const u8 gText_PM[] = _("PM");
 const u8 gText_Moves_Menu[] = _("Change Moves");
+const u8 gText_StatEditor[] = _("EDIT STATS");

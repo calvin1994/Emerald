@@ -32,8 +32,29 @@ LilycoveCity_CoveLilyMotel_2F_EventScript_ShowDiploma::
 	end
 
 LilycoveCity_CoveLilyMotel_2F_EventScript_Programmer::
+specialvar VAR_RESULT, HasAllMons
+	goto_if_eq VAR_RESULT, TRUE, LilycoveCity_CoveLilyMotel_2F_Eventscript_NationalPokedexCompleted	
+	goto LilycoveCity_CoveLilyMotel_2F_Eventscript_NationalPokedexUncompleted
+	release
+	end
+
+LilycoveCity_CoveLilyMotel_2F_Eventscript_NationalPokedexUncompleted::
 	msgbox LilycoveCity_CoveLilyMotel_2F_Text_ImTheProgrammer, MSGBOX_NPC
 	end
+
+LilycoveCity_CoveLilyMotel_2F_Eventscript_NationalPokedexCompleted::
+	call_if_set FLAG_EVS_IVS_EDITOR, LilycoveCity_CoveLilyMotel_2F_Eventscript_EvsIvsEditor
+	message LilycoveCity_CoveLilyMotel_2F_Text_NationalPokedexCompleted
+	waitmessage
+	call Common_EventScript_PlayGymBadgeFanfare
+	setflag FLAG_EVS_IVS_EDITOR
+	msgbox LilycoveCity_CoveLilyMotel_2F_Text_EvsIvsEditor, MSGBOX_NPC
+	end
+
+LilycoveCity_CoveLilyMotel_2F_Eventscript_EvsIvsEditor::
+	msgbox LilycoveCity_CoveLilyMotel_2F_Text_EvsIvsEditor, MSGBOX_NPC
+	end
+
 
 LilycoveCity_CoveLilyMotel_2F_EventScript_GraphicArtist::
 	msgbox LilycoveCity_CoveLilyMotel_2F_Text_ImTheGraphicArtist, MSGBOX_NPC
@@ -88,7 +109,25 @@ LilycoveCity_CoveLilyMotel_2F_Text_ImTheProgrammer:
 	.string "Me? You're talking to me?\n"
 	.string "I'm the PROGRAMMER.\p"
 	.string "I wonder what the SLOTS are\n"
-	.string "like here.$"
+	.string "like here.\p"
+	.string "Come to see me when you have the\n"
+	.string "NATIONAL POKéDEX completed.$"
+
+LilycoveCity_CoveLilyMotel_2F_Text_NationalPokedexCompleted:
+	.string "Me? You're talking to me?\n"
+	.string "I'm the PROGRAMMER.\p"
+	.string "I wonder what the SLOTS are\n"
+	.string "like here.\p"
+	.string "Wow! Incredible!\n"
+	.string "This NATIONAL POKéDEX is completely\p"
+	.string "filled! Let me give you something \n"
+	.string "very useful!$"
+
+LilycoveCity_CoveLilyMotel_2F_Text_EvsIvsEditor:
+	.string "Now you can change your POKéMON\n"
+	.string "stats whenever you want.\p"
+	.string "Just select a POKéMON from your party\n"
+	.string "to do so.$"
 
 LilycoveCity_CoveLilyMotel_2F_Text_ImTheGraphicArtist:
 	.string "I'm the GRAPHIC ARTIST! Aren't the\n"
